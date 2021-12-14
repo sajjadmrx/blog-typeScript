@@ -5,6 +5,7 @@ import { IUser, IUserModel } from '../interfaces/User.interface';
 import bcrypt from 'bcrypt';
 
 import jsonTokenUtils from '../utils/jsonToken.utils';
+import { permissions } from '../enums/permissions.enum';
 
 
 const UserSchema = new Schema<IUserModel>({
@@ -15,7 +16,7 @@ const UserSchema = new Schema<IUserModel>({
         type: String, default: 'hello',
     },
     age: { type: Number, required: false },
-
+    permissions: { type: [Number], required: false, default: [permissions.MEMBER] },
 }, { timestamps: true });
 
 UserSchema.methods.comparePassword = async function (inputPass: string): Promise<boolean> {
@@ -29,6 +30,6 @@ UserSchema.methods.generateToken = function (): string {
     return jsonTokenUtils.createTokn({ _id: this._id }, { expiresIn: '1h' })
 }
 
-export const UserModel = mongoose.model<IUserModel & Document>('User', UserSchema);
+export const UserModel = mongoose.model('User', UserSchema)
 
 

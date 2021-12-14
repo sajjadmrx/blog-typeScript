@@ -1,4 +1,5 @@
 import express, { Router, Request, Response } from 'express';
+import { IRequest } from '../../interfaces/Request.interface';
 
 const userRouter: Router = express.Router();
 
@@ -6,8 +7,9 @@ const userRouter: Router = express.Router();
 // controllers
 
 
-userRouter.get('/', (req: Request, res: Response) => {
-    res.send('Hello User!');
+userRouter.get('/', (req: IRequest, res: Response) => {
+
+    res.json(req.user?.toJSON())
 })
 
 
