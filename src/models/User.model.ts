@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 import { Document, Schema } from 'mongoose';
-import { IUser, IUserModel } from '../interfaces/User';
+import { IUser, IUserModel } from '../interfaces/User.interface';
 
 import bcrypt from 'bcrypt';
 import jsonwebtoken from 'jsonwebtoken';

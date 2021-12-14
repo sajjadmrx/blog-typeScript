@@ -4,7 +4,7 @@ const authRouter: Router = express.Router();
 
 
 // controllers
-import auth from '../../controller/auth'
+import auth from '../../controller/auth.controller'
 
 authRouter.get('/', (req: Request, res: Response) => {
     res.send('Hello World!');

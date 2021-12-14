@@ -4,7 +4,7 @@ const apiRouter: Router = express.Router();
 
 
 // routes
-import authRouter from './auth';
+import authRouter from './auth.routes';
 
 
 apiRouter.get('/', (req: Request, res: Response) => {

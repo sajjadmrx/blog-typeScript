@@ -1,6 +1,6 @@
 import express, { Request, Response, NextFunction, Application } from 'express';
 import mongoose from 'mongoose';
-import apiRouter from './routes/api/index'
+import apiRouter from './routes/api/index.routes'
 
 const port = process.env.PORT || 3000;
 

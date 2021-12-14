@@ -1,10 +1,8 @@
 import { Request, Response } from 'express'
-import { ParamsDictionary } from 'express-serve-static-core'
-import { ParsedQs } from 'qs'
-import { IAuthController } from '../interfaces/Auth'
-import { ISignUpUser } from '../interfaces/User'
+import { IAuthController } from '../interfaces/Auth.interface'
+import { ISignUpUser } from '../interfaces/User.interface'
 
-import { UserModel } from '../models/User'
+import { UserModel } from '../models/User.model'
 import bcrypt from 'bcrypt'
 
 
