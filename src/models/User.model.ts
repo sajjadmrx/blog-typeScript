@@ -3,7 +3,8 @@ import { Document, Schema } from 'mongoose';
 import { IUser, IUserModel } from '../interfaces/User.interface';
 
 import bcrypt from 'bcrypt';
-import jsonwebtoken from 'jsonwebtoken';
+
+import jsonTokenUtils from '../utils/jsonToken.utils';
 
 
 const UserSchema = new Schema<IUserModel>({
@@ -25,9 +26,7 @@ UserSchema.methods.comparePassword = async function (inputPass: string): Promise
 
 }
 UserSchema.methods.generateToken = function (): string {
-    return jsonwebtoken.sign({ _id: this._id }, 'secret', {
-        expiresIn: '1d'
-    })
+    return jsonTokenUtils.createTokn({ _id: this._id }, { expiresIn: '1h' })
 }
 
 export const UserModel = mongoose.model<IUserModel & Document>('User', UserSchema);
